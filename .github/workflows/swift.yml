@@ -6,9 +6,6 @@ on:
   schedule:
     - cron: "0 9 * * 1"
 
-env:
-  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-
 jobs:
   linux:
     runs-on: ubuntu-latest
@@ -16,8 +13,6 @@ jobs:
       fail-fast: false
       matrix:
         image:
-          - swift:5.0.3-xenial
-          - swift:5.3.2-bionic
           - swift:5.10.1-noble
     container: ${{ matrix.image }}
     steps:
